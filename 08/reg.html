@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>注册页面</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+            *{margin: 0; padding: 0;}
+            body{font-size: 12px;}
+            fieldset{width: 600px; margin: 15px; padding: 15px;}
+            legend{font-weight: bold;}
+            p{margin-bottom: 5px;}
+            input{width: 150px;}
+            label{float: left; width: 70px; margin-left: 10px;}
+            [name="submit"]{margin-left: 42px;}
+        </style>
+    </head>
+    <body>
+    <fieldset>
+        <legend>用户注册</legend>
+        <form action="reg.php" name="regForm" method="post" accept-charset="utf-8" onsubmit="return inputCheck(this);" >
+            <p>
+                <label for="username" class="label">用户名：</label>
+                <input type="text" id="username" class="input" name="username" />
+                <span>（必填 3 - 15个字符长度，支持中文、英文、数字和下划线）</span>
+            </p>
+            <p>
+                <label for="password" class="label">密码：</label>
+                <input type="password" id="password" class="input" name="password" />
+                <span>（必填 长度不少于6位）</span>
+            </p>
+            <p>
+                <label for="password" class="label">确认密码：</label>
+                <input type="password" id="repassword" class="input" name="repassword" />
+                <span>（再次输入密码）</span>
+            </p>
+            <p>
+                <label for="email" class="label">电子邮箱：</label>
+                <input type="email" id="email" class="input" name="email" />
+                <span>（必填）</span>
+            </p>
+            <p>
+                <input type="submit" name="submit" value="提交注册">
+            </p>
+        </form>
+    </fieldset>
+    </body>
+    <script>
+        function inputCheck(regForm){
+            if(regForm.username.value == ''){
+                alert('用户名不能为空');
+                regForm.username.focus();
+                return false;
+            }
+
+            if(regForm.password.value == ''){
+                alert('密码不能为空');
+                regForm.password.focus();
+                return false;
+            }
+
+            if(regForm.repassword.value != regForm.password.value){
+                alert('两次密码输入不同');
+                regForm.repassword.focus();
+                return false;
+            }
+
+            if(regForm.email.value == ''){
+                alert('Email不能为空');
+                regForm.email.focus();
+                return false;
+            }
+        }
+    </script>
+</html>

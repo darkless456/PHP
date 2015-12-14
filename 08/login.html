@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Building-site</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+            *{margin: 0; padding: 0;}
+            body{font-size: 12px;}
+            fieldset{width: 235px; padding: 10px; margin: 30px;}
+            input{width: 150px;}
+            legend{font-weight: bold;}
+            p{margin-bottom: 10px;}
+            label{float: left; width: 70px; margin-left: 10px;}
+            [name="submit"]{margin-left: 45px;}
+        </style>
+    </head>
+    <body>
+    <fieldset>
+        <legend>用户登陆</legend>
+        <form name="loginForm" action="login.php" method="post" accept-charset="utf-8" onsubmit="return inputCheck(this);">
+            <p>
+                <label for="username">用户名：</label>  
+                <input type="text" name="username" placeholder="请输入用户名">               
+            </p>
+            <p>
+                <label for="password">密码：</label>
+                <input type="password" name="password" placeholder="请输入密码">            
+            </p>
+            <p>
+                <input type="submit" name="submit" value="登陆">                
+            </p>
+        </form>
+    </fieldset>
+    </body>
+    <script>
+        function inputCheck(loginForm){
+            if(loginForm.username.value == ''){
+                alert('用户名不能为空');
+                loginForm.username.focus();
+                return false;
+            }
+
+            if(loginForm.password.value == ''){
+                alert('密码不能为空');
+                loginForm.password.focus();
+                return false;
+            }
+        }
+    </script>
+</html>
