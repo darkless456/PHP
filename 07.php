@@ -9,7 +9,7 @@
  * @Author: darkless
  * @Date:   2015-12-08 11:33:34
  * @Last Modified by:   darkless
- * @Last Modified time: 2015-12-14 13:36:28
+ * @Last Modified time: 2015-12-15 15:02:43
  */
 
 $link = @mysql_connect("localhost", "root", "") or die("连接数据库失败,错误代码是：" . mysql_errno());
@@ -56,12 +56,13 @@ for($i=0; $i<=9; $i++){
 //每页显示个数
 $pageSize = 4;
 //确定第几页
-$p = $_GET['p']?$_GET['p']:1;
+$p = @$_GET['p']?$_GET['p']:1;
 // $p = 2;
 //limit参数(数据指针)
 $offset = ($p-1)*$pageSize;
 //查询数据
 $select_data = mysql_query("SELECT * FROM guestbook ORDER BY id DESC LIMIT $offset, $pageSize;");
+var_dump($select_data);
 //输出数据（循环输出）
 while($sd = mysql_fetch_array($select_data)){
     echo '<a href="', $sd['name'], '">', $sd['name'], '</a>&nbsp;';
